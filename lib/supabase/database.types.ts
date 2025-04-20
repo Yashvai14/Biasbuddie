@@ -1,0 +1,190 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      comments: {
+        Row: {
+          id: string
+          created_at: string
+          content: string
+          user_id: string
+          article_id: string
+          parent_id: string | null
+          likes: number
+          dislikes: number
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          content: string
+          user_id: string
+          article_id: string
+          parent_id?: string | null
+          likes?: number
+          dislikes?: number
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          content?: string
+          user_id?: string
+          article_id?: string
+          parent_id?: string | null
+          likes?: number
+          dislikes?: number
+        }
+      }
+      forum_comments: {
+        Row: {
+          id: string
+          created_at: string
+          content: string
+          user_id: string
+          post_id: string
+          parent_id: string | null
+          likes: number
+          dislikes: number
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          content: string
+          user_id: string
+          post_id: string
+          parent_id?: string | null
+          likes?: number
+          dislikes?: number
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          content?: string
+          user_id?: string
+          post_id?: string
+          parent_id?: string | null
+          likes?: number
+          dislikes?: number
+        }
+      }
+      forum_posts: {
+        Row: {
+          id: string
+          created_at: string
+          title: string
+          content: string
+          user_id: string
+          category: string
+          votes: number
+          replies: number
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          title: string
+          content: string
+          user_id: string
+          category: string
+          votes?: number
+          replies?: number
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          title?: string
+          content?: string
+          user_id?: string
+          category?: string
+          votes?: number
+          replies?: number
+        }
+      }
+      news_articles: {
+        Row: {
+          id: string
+          created_at: string
+          title: string
+          content: string
+          description: string
+          source: string | null
+          source_url: string | null
+          user_id: string
+          votes: number
+          tags: string[] | null
+          image_url: string | null
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          title: string
+          content: string
+          description: string
+          source?: string | null
+          source_url?: string | null
+          user_id: string
+          votes?: number
+          tags?: string[] | null
+          image_url?: string | null
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          title?: string
+          content?: string
+          description?: string
+          source?: string | null
+          source_url?: string | null
+          user_id?: string
+          votes?: number
+          tags?: string[] | null
+          image_url?: string | null
+        }
+      }
+      profiles: {
+        Row: {
+          id: string
+          updated_at: string | null
+          username: string | null
+          full_name: string | null
+          avatar_url: string | null
+          bio: string | null
+        }
+        Insert: {
+          id: string
+          updated_at?: string | null
+          username?: string | null
+          full_name?: string | null
+          avatar_url?: string | null
+          bio?: string | null
+        }
+        Update: {
+          id?: string
+          updated_at?: string | null
+          username?: string | null
+          full_name?: string | null
+          avatar_url?: string | null
+          bio?: string | null
+        }
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      increment: {
+        Args: {
+          table_name: string
+          column_name: string
+          row_id: string
+        }
+        Returns: undefined
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
+}
